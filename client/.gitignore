@@ -1,0 +1,47 @@
+# ---------------------------
+# Frontend (React + Vite)
+# ---------------------------
+
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+.vite/
+.vite-cache/
+.cache/
+coverage/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+*.log
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.production.local
+.env.test.local
+
+# Editor / System junk
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Test / Coverage
+coverage/
+*.spec.tsx
+*.test.tsx
+*.spec.ts
+*.test.ts
+
+# OS files
+*.swp
+*.tmp
+*.bak
+
+# Generated static assets
+public/build/

@@ -1,0 +1,58 @@
+# ---------------------------
+# Backend (Node + Express + TypeScript)
+# ---------------------------
+
+# Node dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.test.local
+.env.production.local
+
+# Coverage
+coverage/
+lcov-report/
+
+# Temporary / Runtime files
+tmp/
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Data storage
+pgdata/
+esdata/
+uploads/
+storage/
+*.sqlite
+
+# IDE / System
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Docker-related
+docker/
+*.tar
+*.img
+
+# Cache
+.eslintcache
+.prettiercache

@@ -45,16 +45,11 @@ export default function Login() {
         <h1 className="text-3xl font-extrabold text-center bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent mb-4">
           ⚖️ CaseFlow AI
         </h1>
-        <p className="text-center text-gray-400 mb-8 text-lg">
-          Secure login to your AI Dashboard
-        </p>
+        <p className="text-center text-gray-400 mb-8 text-lg">Secure login to your AI Dashboard</p>
 
         <form onSubmit={submit} className="space-y-6">
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-300 mb-2"
-            >
+            <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
               Email Address
             </label>
             <input
@@ -69,10 +64,7 @@ export default function Login() {
           </div>
 
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-300 mb-2"
-            >
+            <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
               Password
             </label>
             <input
@@ -98,9 +90,7 @@ export default function Login() {
         {msg && (
           <div
             className={`mt-6 text-center text-md font-medium px-4 py-3 rounded-lg ${
-              msg.includes("✅")
-                ? "bg-green-800 text-green-100"
-                : "bg-red-800 text-red-100"
+              msg.includes("✅") ? "bg-green-800 text-green-100" : "bg-red-800 text-red-100"
             }`}
           >
             {msg}

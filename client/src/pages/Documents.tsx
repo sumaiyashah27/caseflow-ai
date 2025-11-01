@@ -70,24 +70,17 @@ export default function Documents() {
     <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
       {/* Main Content Area */}
       <main className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">
-          Document Management
-        </h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-8">Document Management</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column: Add + Search */}
           <div className="lg:col-span-1 space-y-8">
             {/* Add Document Form */}
             <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-6">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                Add New Document
-              </h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Add New Document</h2>
               <form onSubmit={add} className="space-y-4">
                 <div>
-                  <label
-                    htmlFor="title"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
+                  <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
                     Document Title
                   </label>
                   <input
@@ -100,10 +93,7 @@ export default function Documents() {
                   />
                 </div>
                 <div>
-                  <label
-                    htmlFor="content"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
+                  <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-1">
                     Document Content
                   </label>
                   <textarea
@@ -128,9 +118,7 @@ export default function Documents() {
 
             {/* Search Form */}
             <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-6">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                Search Documents
-              </h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Search Documents</h2>
               <form onSubmit={doSearch} className="flex gap-2">
                 <input
                   placeholder="Search by title or content..."
@@ -164,9 +152,7 @@ export default function Documents() {
           {/* Right Column: Document List */}
           <div className="lg:col-span-2 space-y-6">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-semibold text-gray-900">
-                Document List
-              </h2>
+              <h2 className="text-2xl font-semibold text-gray-900">Document List</h2>
               <button
                 onClick={refresh}
                 className="text-sm font-medium text-amber-600 hover:text-amber-800"
@@ -178,9 +164,7 @@ export default function Documents() {
             <div className="bg-white border border-gray-200 rounded-xl shadow-lg">
               <ul className="divide-y divide-gray-200">
                 {isLoading ? (
-                  <li className="p-4 text-center text-gray-500">
-                    Loading documents...
-                  </li>
+                  <li className="p-4 text-center text-gray-500">Loading documents...</li>
                 ) : (
                   docs.map((d) => (
                     <li
@@ -188,9 +172,7 @@ export default function Documents() {
                       className="p-4 flex flex-col sm:flex-row justify-between sm:items-center hover:bg-gray-50/50 transition-colors"
                     >
                       <div className="mb-2 sm:mb-0">
-                        <div className="font-semibold text-gray-800">
-                          {d.title}
-                        </div>
+                        <div className="font-semibold text-gray-800">{d.title}</div>
                         <div className="text-sm text-gray-500">
                           ID: {d.id || d._id?.slice(-6) || "N/A"}
                         </div>
@@ -206,9 +188,7 @@ export default function Documents() {
                   ))
                 )}
                 {!isLoading && docs.length === 0 && (
-                  <li className="p-4 text-center text-gray-500">
-                    No documents found.
-                  </li>
+                  <li className="p-4 text-center text-gray-500">No documents found.</li>
                 )}
               </ul>
             </div>

@@ -65,9 +65,7 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left: Document List */}
           <div className="lg:col-span-2 space-y-6">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-2">
-              Recent Documents
-            </h2>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-2">Recent Documents</h2>
             <div className="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500">
               <ul className="divide-y divide-gray-200">
                 {docs.length > 0 ? (
@@ -77,9 +75,7 @@ export default function Dashboard() {
                       className="p-5 flex flex-col sm:flex-row justify-between sm:items-center hover:bg-gray-50 transition-colors duration-300"
                     >
                       <div className="mb-2 sm:mb-0">
-                        <div className="font-semibold text-gray-800 text-lg">
-                          {d.title}
-                        </div>
+                        <div className="font-semibold text-gray-800 text-lg">{d.title}</div>
                         <div className="text-sm text-gray-500">ID: {d.id}</div>
                       </div>
                       <span
@@ -92,9 +88,7 @@ export default function Dashboard() {
                     </li>
                   ))
                 ) : (
-                  <li className="p-6 text-center text-gray-500">
-                    Loading documents...
-                  </li>
+                  <li className="p-6 text-center text-gray-500">Loading documents...</li>
                 )}
               </ul>
             </div>
@@ -102,9 +96,7 @@ export default function Dashboard() {
 
           {/* Right: AI Analysis */}
           <div className="lg:col-span-1 space-y-6">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-              AI Document Insight
-            </h2>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">AI Document Insight</h2>
             <div className="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-lg p-6 transition-all hover:shadow-xl">
               <p className="text-gray-600 mb-4">
                 Run AI-powered content understanding on your first document.
@@ -133,9 +125,7 @@ export default function Dashboard() {
                   </h3>
                   <div>
                     <strong className="text-amber-700">Summary:</strong>
-                    <p className="text-gray-700 mt-1 leading-relaxed">
-                      {aiPreview.summary}
-                    </p>
+                    <p className="text-gray-700 mt-1 leading-relaxed">{aiPreview.summary}</p>
                   </div>
                   <div>
                     <strong className="text-amber-700">Classification:</strong>
@@ -165,11 +155,7 @@ function StatCard({ icon, label, value, color }) {
     <div
       className={`flex items-center gap-4 bg-white/90 backdrop-blur-sm border border-gray-100 shadow-md hover:shadow-lg rounded-2xl px-5 py-6 transition-all hover:-translate-y-1`}
     >
-      <div
-        className={`p-3 rounded-xl bg-gradient-to-br ${color} text-white shadow-sm`}
-      >
-        {icon}
-      </div>
+      <div className={`p-3 rounded-xl bg-gradient-to-br ${color} text-white shadow-sm`}>{icon}</div>
       <div>
         <div className="text-gray-500 text-sm font-medium">{label}</div>
         <div className="text-2xl font-bold text-gray-900">{value}</div>

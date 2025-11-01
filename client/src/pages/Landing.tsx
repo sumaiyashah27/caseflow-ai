@@ -21,9 +21,7 @@ export default function Landing() {
     <div className="min-h-screen flex flex-col bg-white text-gray-900">
       {/* Navbar */}
       <header className="w-full flex justify-between items-center px-10 py-6 shadow-sm bg-white fixed top-0 left-0 z-50 border-b border-gray-200">
-        <h1 className="text-2xl font-extrabold text-amber-600 tracking-tight">
-          ⚖️ CaseFlow AI
-        </h1>
+        <h1 className="text-2xl font-extrabold text-amber-600 tracking-tight">⚖️ CaseFlow AI</h1>
         <button
           onClick={() => navigate("/login")}
           className="bg-amber-500 hover:bg-amber-600 text-white font-medium px-6 py-2.5 rounded-lg shadow-sm transition"
@@ -38,8 +36,8 @@ export default function Landing() {
           AI-Powered Legal Workflow Automation
         </h2>
         <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl leading-relaxed">
-          Simplify case management, document analysis, and intelligent legal
-          search — powered by OpenAI, PostgreSQL, and Elasticsearch.
+          Simplify case management, document analysis, and intelligent legal search — powered by
+          OpenAI, PostgreSQL, and Elasticsearch.
         </p>
         <button
           onClick={() => navigate("/login")}
@@ -51,18 +49,20 @@ export default function Landing() {
 
       {/* Metrics */}
       {/* Metrics Section - Modern Glass Style */}
-       <section className="mt-28 max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-        <Metric label="Scalability" value="88%" gradient="from-amber-400 to-orange-500" delay="100" />
+      <section className="mt-28 max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+        <Metric
+          label="Scalability"
+          value="88%"
+          gradient="from-amber-400 to-orange-500"
+          delay="100"
+        />
         <Metric label="Security" value="90%" gradient="from-green-400 to-emerald-500" delay="200" />
         <Metric label="UX / DX" value="86%" gradient="from-sky-400 to-indigo-500" delay="300" />
-       </section>
-
+      </section>
 
       {/* Features */}
       <section className="mt-28 px-8 max-w-6xl mx-auto text-center">
-        <h3 className="text-4xl font-extrabold mb-14 text-gray-900">
-          Key Capabilities
-        </h3>
+        <h3 className="text-4xl font-extrabold mb-14 text-gray-900">Key Capabilities</h3>
         <div className="grid md:grid-cols-3 gap-10">
           <Feature
             icon={<Brain className="text-amber-600" size={40} />}
@@ -115,26 +115,14 @@ export default function Landing() {
           System Architecture
         </h3>
         <p className="text-gray-600 text-center mb-10 max-w-3xl mx-auto text-lg">
-          A scalable, modular ecosystem integrating React, Node.js, PostgreSQL,
-          OpenAI, and Elasticsearch.
+          A scalable, modular ecosystem integrating React, Node.js, PostgreSQL, OpenAI, and
+          Elasticsearch.
         </p>
         <div className="flex flex-col md:flex-row justify-center items-center gap-6 text-gray-700">
-          <Box
-            title="Frontend"
-            icon={<Server size={24} />}
-            text="React + TypeScript + Vite"
-          />
-          <span className="text-2xl font-bold text-gray-400 rotate-90 md:rotate-0">
-            →
-          </span>
-          <Box
-            title="Backend"
-            icon={<Lock size={24} />}
-            text="Express + Node.js + TypeScript"
-          />
-          <span className="text-2xl font-bold text-gray-400 rotate-90 md:rotate-0">
-            →
-          </span>
+          <Box title="Frontend" icon={<Server size={24} />} text="React + TypeScript + Vite" />
+          <span className="text-2xl font-bold text-gray-400 rotate-90 md:rotate-0">→</span>
+          <Box title="Backend" icon={<Lock size={24} />} text="Express + Node.js + TypeScript" />
+          <span className="text-2xl font-bold text-gray-400 rotate-90 md:rotate-0">→</span>
           <Box
             title="AI + DB Layer"
             icon={<Cloud size={24} />}
@@ -145,9 +133,7 @@ export default function Landing() {
 
       {/* Testimonials */}
       <section className="mt-28 px-8 py-20 bg-gray-900 text-white">
-        <h3 className="text-4xl font-extrabold mb-14 text-center text-white">
-          What Our Users Say
-        </h3>
+        <h3 className="text-4xl font-extrabold mb-14 text-center text-white">What Our Users Say</h3>
         <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
           <TestimonialCard
             quote="CaseFlow AI has transformed our document review process. What used to take days now takes hours. The AI search is incredibly accurate."
@@ -169,9 +155,7 @@ export default function Landing() {
 
       {/* Tech Stack */}
       <section className="mt-28 px-8 max-w-5xl mx-auto text-center">
-        <h3 className="text-4xl font-extrabold mb-10 text-gray-900">
-          Tech Stack
-        </h3>
+        <h3 className="text-4xl font-extrabold mb-10 text-gray-900">Tech Stack</h3>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5 text-gray-700">
           <StackItem text="ReactJS" />
           <StackItem text="TypeScript" />
@@ -188,9 +172,8 @@ export default function Landing() {
           Deployment & CI/CD
         </h3>
         <p className="text-gray-600 text-center max-w-3xl mx-auto mb-10 text-lg">
-          Built with GitHub Actions for secure CI/CD pipelines. Fully
-          containerized via Docker and deploy-ready for AWS Elastic Beanstalk or
-          EC2.
+          Built with GitHub Actions for secure CI/CD pipelines. Fully containerized via Docker and
+          deploy-ready for AWS Elastic Beanstalk or EC2.
         </p>
         <div className="flex flex-wrap justify-center gap-6 text-gray-700 font-medium">
           <Badge text="🐳 Docker" />
@@ -202,8 +185,7 @@ export default function Landing() {
       {/* Footer */}
       <footer className="mt-24 text-center text-gray-500 text-sm py-8 border-t bg-white">
         © {new Date().getFullYear()}{" "}
-        <span className="font-semibold text-amber-600">CaseFlow AI</span> — Built
-        with ❤️ by{" "}
+        <span className="font-semibold text-amber-600">CaseFlow AI</span> — Built with ❤️ by{" "}
         <a
           href={githubRepoUrl}
           target="_blank"
@@ -233,6 +215,7 @@ function StepCard({ step, title, desc, icon }: any) {
   return (
     <div className="bg-white rounded-lg shadow-lg p-6 text-center">
       <div className="flex justify-center mb-4">{icon}</div>
+      <h5 className="text-sm font-semibold text-amber-600 mb-1">{step}</h5>
       <h4 className="text-lg font-bold text-gray-900 mb-2">{title}</h4>
       <p className="text-sm text-gray-600">{desc}</p>
     </div>
@@ -289,12 +272,12 @@ function Metric({
 
       {/* Card content */}
       <div className="relative z-10 py-12 px-4">
-        <h4 className={`text-6xl font-extrabold bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
+        <h4
+          className={`text-6xl font-extrabold bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}
+        >
           {value}
         </h4>
-        <p className="text-gray-700 font-semibold mt-3 text-lg tracking-wide">
-          {label}
-        </p>
+        <p className="text-gray-700 font-semibold mt-3 text-lg tracking-wide">{label}</p>
 
         {/* Accent underline */}
         <div
@@ -304,7 +287,6 @@ function Metric({
     </div>
   );
 }
-
 
 function StackItem({ text }: any) {
   return (

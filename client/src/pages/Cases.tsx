@@ -127,9 +127,7 @@ export default function Cases() {
                       className="p-4 flex flex-col sm:flex-row justify-between sm:items-center border-l-4 border-transparent hover:border-amber-500 hover:bg-gray-50/50 transition-all"
                     >
                       <div className="mb-2 sm:mb-0">
-                        <div className="font-semibold text-gray-800">
-                          {c.name}
-                        </div>
+                        <div className="font-semibold text-gray-800">{c.name}</div>
                         <div className="text-sm text-gray-500">
                           ID: {c.id || c._id?.slice(-6) || "N/A"}
                         </div>
@@ -145,9 +143,7 @@ export default function Cases() {
                   ))
                 )}
                 {!isLoading && cases.length === 0 && (
-                  <li className="p-6 text-center text-gray-500">
-                    No cases found.
-                  </li>
+                  <li className="p-6 text-center text-gray-500">No cases found.</li>
                 )}
               </ul>
             </div>

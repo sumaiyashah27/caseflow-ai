@@ -1,12 +1,12 @@
-import { Pool } from 'pg';
-import bcrypt from 'bcryptjs';
+import { Pool } from "pg";
+import bcrypt from "bcryptjs";
 
 export const pool = new Pool({
-  host: process.env.PGHOST || 'localhost',
+  host: process.env.PGHOST || "localhost",
   port: Number(process.env.PGPORT || 5432),
-  database: process.env.PGDATABASE || 'caseflow',
-  user: process.env.PGUSER || 'admin',
-  password: process.env.PGPASSWORD || 'password'
+  database: process.env.PGDATABASE || "caseflow",
+  user: process.env.PGUSER || "admin",
+  password: process.env.PGPASSWORD || "password",
 });
 
 export async function initDb() {
@@ -33,16 +33,21 @@ export async function initDb() {
       );
     `);
 
-    const { rows } = await client.query('SELECT COUNT(*)::int AS count FROM users');
+    const { rows } = await client.query(
+      "SELECT COUNT(*)::int AS count FROM users"
+    );
     if (rows[0].count === 0) {
-      const hash = await bcrypt.hash('admin123', 10);
-      await client.query('INSERT INTO users (email, password_hash, role) VALUES ($1,$2,$3)', [
-        'admin@caseflow.ai',
-        hash,
-        'admin'
-      ]);
-      await client.query("INSERT INTO cases (name, status) VALUES ('Acme vs Globex', 'open'), ('In re: Example', 'open')");
-      await client.query("INSERT INTO documents (title, content, status, case_id) VALUES         ('NDA Contract', 'This Non-Disclosure Agreement between...', 'contract', 1),         ('Motion to Dismiss', 'Comes now the Defendant...', 'motion', 1)");
+      const hash = await bcrypt.hash("admin123", 10);
+      await client.query(
+        "INSERT INTO users (email, password_hash, role) VALUES ($1,$2,$3)",
+        ["admin@caseflow.ai", hash, "admin"]
+      );
+      await client.query(
+        "INSERT INTO cases (name, status) VALUES ('Acme vs Globex', 'open'), ('In re: Example', 'open')"
+      );
+      await client.query(
+        "INSERT INTO documents (title, content, status, case_id) VALUES         ('NDA Contract', 'This Non-Disclosure Agreement between...', 'contract', 1),         ('Motion to Dismiss', 'Comes now the Defendant...', 'motion', 1)"
+      );
     }
   } finally {
     client.release();

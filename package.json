@@ -1,0 +1,29 @@
+{
+  "name": "caseflow-ai",
+  "version": "1.0.0",
+  "description": "**React + TypeScript + Node.js + PostgreSQL + OpenAI + Elasticsearch + Docker + AWS-ready**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker:down": "docker-compose down",
+    "start:docker": "docker-compose up -d postgres elasticsearch",
+    "wait:elastic": "powershell -Command \"Write-Host '⏳ Waiting for Elasticsearch...'; $maxRetries=15; $count=0; while ($count -lt $maxRetries) { try { $response = Invoke-WebRequest -Uri 'http://localhost:9200' -UseBasicParsing -TimeoutSec 3; if ($response.StatusCode -eq 200) { Write-Host '✅ Elasticsearch is ready!'; exit 0 } } catch { Start-Sleep -Seconds 2; $count++ } }; Write-Host '❌ Elasticsearch not ready in time.'; exit 1\"",
+    "start:server": "npm run wait:elastic && cd server && npm run dev",
+    "start:client": "cd client && npm run dev",
+    "start:all": "npm run docker:down && concurrently \"npm run start:docker\" \"npm run start:server\" \"npm run start:client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumaiyashah27/caseflow-ai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sumaiyashah27/caseflow-ai/issues"
+  },
+  "homepage": "https://github.com/sumaiyashah27/caseflow-ai#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

@@ -1,5 +1,30 @@
-version: "3.9"
+##########################################################################################################
+# ⚠️ NOTE — IMPORTANT ABOUT OPENAI 429 ERRORS
+#
+# If your backend hits OpenAI’s API from inside Docker and shows:
+#   “Error: 429 You exceeded your current quota”
+#
+# → That does NOT mean your API key or billing is the problem.
+# → It usually means OpenAI has rate-limited the shared outbound IP used by Docker’s internal network.
+#
+# ✅ Why it works locally (no Docker):
+#    Your requests go out through your real machine’s IP, which OpenAI recognizes and allows.
+#
+# ❌ Why it fails in Docker:
+#    Docker Desktop (especially on Windows/Mac) uses a NATed IP shared across containers,
+#    which may be throttled or blacklisted by OpenAI.
+#
+# 🧩 Recommended Fix for Development:
+#    1. Run Postgres + Elasticsearch in Docker (keep them isolated).
+#    2. Run the backend and frontend locally — they’ll use your real IP, avoiding OpenAI 429s.
+#
+# 🧰 If you MUST run backend in Docker:
+#    - Try `network_mode: "host"` (Linux only)
+#    - Or use a VPN / new OpenAI key / custom HTTP proxy
+#
+##########################################################################################################
 
+version: "3.9"
 services:
   postgres:
     image: postgres:15

@@ -1,118 +1,94 @@
 # ⚖️ CaseFlow AI – Legal Workflow Automation Platform
 
-**React + TypeScript + Node.js + PostgreSQL + OpenAI + Elasticsearch + Docker + AWS-ready**
+**Full Stack:** React + TypeScript + Node.js + PostgreSQL + Elasticsearch + OpenAI + Docker + AWS-ready
 
-An AI-driven legal workflow automation platform that enables document intelligence, case tracking, and NLP-powered search for legal teams.
-
-* **Scalability:** ~88% **Security:** ~90% **UX/DX:** ~86%
-* **AI + NLP:** Summarization, classification, context-based search
-* **Stack:** React + Node + PostgreSQL + Elasticsearch + OpenAI
-* **AWS Elastic Beanstalk** deploy-ready (Docker)
+CaseFlow AI is an intelligent legal workflow automation system designed to help law firms and legal teams analyze, organize, and manage case documents using AI-powered insights.
 
 ---
 
-## Table of Contents
+## 🚀 Overview
 
-* [Features](#features)
-* [Tech Stack](#tech-stack)
-* [Screens](#screens)
-* [Architecture](#architecture)
-* [Repo Structure](#repo-structure)
-* [Prerequisites](#prerequisites)
-* [Environment Variables](#environment-variables)
-* [One-Command Dev Startup](#-one-command-dev-startup)
-* [Run with Docker (manual)](#run-with-docker-manual)
-* [Quick Start (No Docker)](#quick-start-no-docker)
-* [Default Credentials](#default-credentials)
-* [AWS Deployment (Elastic Beanstalk)](#aws-deployment-elastic-beanstalk)
-* [Troubleshooting](#troubleshooting)
-* [License](#license)
+**CaseFlow AI** combines natural language processing, document analytics, and data management to streamline legal case workflows. It can summarize documents, extract entities, and classify legal materials such as contracts, motions, and memos — all while offering scalable infrastructure.
+
+**Key Capabilities:**
+
+* 🤖 AI-driven document analysis using OpenAI
+* 🔍 Advanced search via Elasticsearch
+* 🧩 Full CRUD case management backend
+* 🔐 Secure authentication with JWT
+* 🐳 Dockerized, modular, and AWS-ready
+* 🧠 Clean local dev flow with one command (`npm run start:all`)
 
 ---
 
-## Features
-
-* 🤖 **AI Document Analysis** – Auto-summarization & tagging using OpenAI API.
-* 🔍 **Elasticsearch Integration** – Contextual search & indexing for legal docs.
-* 📁 **Case Management Dashboard** – Track, manage, and review cases.
-* 🔐 **JWT Authentication** – Secure login for authorized users.
-* 🐳 **Dockerized Infrastructure** – One command for full stack setup.
-* ☁️ **AWS-ready** – Supports container deployment via Elastic Beanstalk.
-
----
-
-## Tech Stack
-
-* **Frontend:** React, TypeScript, Vite
-* **Backend:** Node.js, Express, TypeScript
-* **Database:** PostgreSQL
-* **Search Engine:** Elasticsearch 7.17
-* **AI Engine:** OpenAI API (text analysis)
-* **Infra:** Docker, docker-compose
-* **CI/CD:** GitHub Actions
-
----
-
-## Screens
-
-* **Landing Page:** Overview of CaseFlow AI with Login CTA
-* **Dashboard:** Quick case summaries and document analytics
-* **Documents:** Upload and classify legal files
-* **Cases:** Track, assign, and analyze ongoing legal cases
-
----
-
-## Architecture
+## 🏗️ Architecture
 
 ```
 [ React (Vite) ] → REST API (Express + TypeScript)
-       │
-       ▼
+        │
+        ▼
 [ PostgreSQL + Elasticsearch + OpenAI API ]
 ```
 
-**Prod-ready Note:** Data and AI layers are modular, easily replaceable with other NLP or DB systems.
+Backend handles authentication, AI requests, and database/search integration.
+Frontend provides the dashboard and document management interface.
 
 ---
 
-## Repo Structure
+## 🧰 Tech Stack
+
+| Layer         | Technology                                    |
+| ------------- | --------------------------------------------- |
+| **Frontend**  | React, TypeScript, Vite                       |
+| **Backend**   | Node.js, Express, TypeScript                  |
+| **Database**  | PostgreSQL 15                                 |
+| **Search**    | Elasticsearch 7.17                            |
+| **AI Engine** | OpenAI GPT models                             |
+| **Infra**     | Docker, Docker Compose, AWS Elastic Beanstalk |
+| **CI/CD**     | GitHub Actions                                |
+
+---
+
+## 🧩 Folder Structure
 
 ```
 caseflow-ai/
-├─ client/                # React + Vite frontend
-│  ├─ src/pages/          # Landing, Login, Dashboard, Documents, Cases
-│  ├─ src/services/       # axios + API calls
-│  └─ App.tsx             # Routing setup
-├─ server/                # Node + Express backend (TypeScript)
-│  ├─ src/services/       # db.ts, elastic.ts, openai.ts
-│  ├─ src/routes/         # auth, documents, cases
-│  └─ index.ts            # App entry
-├─ docker-compose.yml     # Docker setup
-├─ .github/workflows/     # CI/CD
+├─ client/                  # Frontend (React + Vite)
+│  ├─ src/pages/            # Pages: Dashboard, Cases, Documents
+│  ├─ src/services/         # API integration (axios)
+│  └─ App.tsx               # Router setup
+│
+├─ server/                  # Backend (Node + Express + TS)
+│  ├─ src/routes/           # Routes: auth, documents, cases
+│  ├─ src/services/         # Services: db, elastic, openai
+│  └─ index.ts              # Entry point
+│
+├─ docker-compose.yml       # Docker configuration
+├─ .github/workflows/       # CI/CD setup
 └─ README.md
 ```
 
 ---
 
-## Prerequisites
+## ⚙️ Prerequisites
 
 * Node.js **v20+**
 * npm **v9+**
 * Docker Desktop
-* PostgreSQL 15+ (only if running locally without Docker)
-* Elasticsearch 7.17+ (only if running locally without Docker)
-* AWS CLI (optional)
+* PostgreSQL 15+ (optional for local only)
+* Elasticsearch 7.17+ (optional for local only)
 
 ---
 
-## Environment Variables
+## 🔐 Environment Variables
 
 ### `server/.env`
 
 ```env
 PORT=5000
-JWT_SECRET=change_me
-OPENAI_API_KEY=sk-xxxx
+JWT_SECRET=your_secret_here
+OPENAI_API_KEY=sk-xxxxx
+OPENAI_BASE_URL=https://api.openai.com/v1
 
 PGHOST=postgres
 PGPORT=5432
@@ -130,107 +106,42 @@ ELASTICSEARCH_INDEX=caseflow_docs
 VITE_API_BASE=http://localhost:5000/api
 ```
 
-> **Local (non-Docker):** use `PGHOST=localhost` and `ELASTICSEARCH_NODE=http://localhost:9200`.
+> For **non-Docker** local runs, replace `PGHOST=localhost` and `ELASTICSEARCH_NODE=http://localhost:9200`.
 
 ---
 
-## 🚀 One-Command Dev Startup
+## 🧠 How to Run the Project
 
-We provide a single `npm` command from the **repo root** that:
+To start the complete stack (databases in Docker, app locally):
 
-1. **Stops** any old containers (`docker-compose down`)
-2. **Starts** fresh containers in the background (`postgres`, `elasticsearch`)
-3. **Waits** for Elasticsearch (and optionally PostgreSQL) to be ready
-4. **Launches** backend (`server`) and frontend (`client`) together
-
-### 1) Install root tooling
-
-```bash
-cd caseflow-ai
-npm install
-```
-
-> Ensures `concurrently` is present (devDependency).
-
-### 2) Root `package.json` scripts
-
-Paste the following into the **root** `package.json` under `"scripts"`:
-
-```json
-{
-  "scripts": {
-    "docker:down": "docker-compose down",
-    "start:docker": "docker-compose up -d postgres elasticsearch",
-
-    "wait:elastic": "powershell -Command \"Write-Host '⏳ Waiting for Elasticsearch...'; $max=20; $i=0; while ($i -lt $max) { try { $r = Invoke-WebRequest -Uri 'http://localhost:9200' -UseBasicParsing -TimeoutSec 3; if ($r.StatusCode -eq 200) { Write-Host '✅ Elasticsearch is ready!'; exit 0 } } catch { } Start-Sleep -Seconds 2; $i++ } Write-Host '❌ Elasticsearch not ready in time.'; exit 1\"",
-
-    "wait:postgres": "powershell -Command \"Write-Host '⏳ Waiting for PostgreSQL...'; $max=30; $i=0; while ($i -lt $max) { $res = (docker exec postgres pg_isready -U admin -d caseflow 2>$null); if ($LASTEXITCODE -eq 0 -or $res -match 'accepting connections') { Write-Host '✅ PostgreSQL is ready!'; exit 0 } Start-Sleep -Seconds 2; $i++ } Write-Host '❌ PostgreSQL not ready in time.'; exit 1\"",
-
-    "start:server": "npm run wait:elastic && npm run wait:postgres && cd server && npm run dev",
-    "start:client": "cd client && npm run dev",
-
-    "start:all": "npm run docker:down && concurrently \"npm run start:docker\" \"npm run start:server\" \"npm run start:client\"",
-
-    "stop:all": "docker-compose down"
-  }
-}
-```
-
-**Notes**
-
-* `start:docker` runs in **detached** mode (`-d`) so your terminal stays focused on app logs.
-* `wait:elastic` polls `http://localhost:9200` until the container responds.
-* `wait:postgres` uses `docker exec postgres pg_isready …` (assumes the Compose service is named `postgres`). Adjust username/db name if you’ve changed them.
-
-### 3) Start everything
+### Command
 
 ```bash
 npm run start:all
 ```
 
-Access:
+### What it does:
+
+1. Stops any running containers
+2. Starts PostgreSQL & Elasticsearch in Docker
+3. Waits for both to become healthy
+4. Launches backend (`server`) and frontend (`client`) locally
+
+### Access URLs
 
 * Frontend → [http://localhost:5173](http://localhost:5173)
 * Backend → [http://localhost:5000/api](http://localhost:5000/api)
 * Elasticsearch → [http://localhost:9200](http://localhost:9200)
 
-### 4) Stop everything
-
-```bash
-npm run stop:all
-```
-
-This tears down containers. Pressing `Ctrl + C` in the terminal also stops the Node processes started by `concurrently`.
+✅ No OpenAI 429 quota errors — backend uses host IP automatically.
 
 ---
 
-## Run with Docker (manual)
+## ⚡ Quick Start (No Docker)
 
-If you prefer the manual route:
+If you prefer a fully local setup:
 
-### Step 1 — Build Images
-
-```bash
-docker-compose build
-```
-
-### Step 2 — Run Stack
-
-```bash
-docker-compose up
-```
-
-### Step 3 — Access
-
-* Frontend → [http://localhost:5173](http://localhost:5173)
-* Backend → [http://localhost:5000/api](http://localhost:5000/api)
-* Elasticsearch → [http://localhost:9200](http://localhost:9200)
-
----
-
-## Quick Start (No Docker)
-
-### 1️⃣ Backend Setup
+### Backend
 
 ```bash
 cd server
@@ -239,9 +150,7 @@ npm install
 npm run dev
 ```
 
-✅ Backend → [http://localhost:5000/api](http://localhost:5000/api)
-
-### 2️⃣ Frontend Setup
+### Frontend
 
 ```bash
 cd client
@@ -250,39 +159,35 @@ npm install
 npm run dev
 ```
 
-✅ Frontend → [http://localhost:5173](http://localhost:5173)
+Access:
 
-> **Reminder:** Set `PGHOST=localhost` and `ELASTICSEARCH_NODE=http://localhost:9200` when not using Docker.
+* Backend → [http://localhost:5000/api](http://localhost:5000/api)
+* Frontend → [http://localhost:5173](http://localhost:5173)
 
 ---
 
-## Default Credentials
+## 👤 Default Credentials
 
 | Role  | Email                                         | Password |
 | ----- | --------------------------------------------- | -------- |
 | Admin | [admin@caseflow.ai](mailto:admin@caseflow.ai) | admin123 |
 
-> Change these credentials in the database or `.env` after the first run for security. The default login is auto-created when seeding or on first backend launch.
+> Change credentials after first launch for security. Admin account is auto-created during seeding.
 
 ---
 
-## AWS Deployment (Elastic Beanstalk)
+## ☁️ AWS Deployment (Elastic Beanstalk)
 
-### 1️⃣ Build Image
+### Build & Deploy
 
 ```bash
 docker build -t caseflow-ai .
-```
-
-### 2️⃣ Deploy to EB
-
-```bash
 eb init
 eb create caseflow-ai-env
 eb deploy
 ```
 
-App URL:
+Your app will be available at:
 
 ```
 http://caseflow-ai-env.eba-xyz123.us-east-1.elasticbeanstalk.com/
@@ -290,26 +195,16 @@ http://caseflow-ai-env.eba-xyz123.us-east-1.elasticbeanstalk.com/
 
 ---
 
-## Troubleshooting
+## 🧩 Troubleshooting
 
-| Issue                                  | Cause                                  | Fix                                                            |                                                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------------------------------- | --------------------------------------------------------- |
-| `Cannot GET /api`                      | Base route placeholder                 | Normal, not an error                                           |                                                           |
-| `ECONNREFUSED 127.0.0.1:5432`          | PostgreSQL not ready / wrong host      | Use Docker + `npm run wait:postgres` or set `PGHOST` correctly |                                                           |
-| `ConnectionError ... Remote: ::1:9200` | Elasticsearch not ready yet            | Use `npm run wait:elastic` (already in `start:server`)         |                                                           |
-| `Error: listen EADDRINUSE :::5000`     | Port already used                      | Kill process: `netstat -ano                                    | findstr :5000`+`taskkill /PID <pid> /F`, or change `PORT` |
-| Frontend can’t reach API               | Wrong `VITE_API_BASE` in `client/.env` | Set to `http://localhost:5000/api`                             |                                                           |
-| Docker containers won’t start          | Previous run left stale state          | `docker-compose down -v && docker-compose up -d`               |                                                           |
-| Node version mismatch / crypto errors  | Old Node                               | Upgrade to **v20.19+**                                         |                                                           |
-
-**Windows Tip:** If PowerShell execution policy blocks scripts, run PowerShell **as Administrator**:
-
-```powershell
-Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
-```
+| Issue                                        | Cause                                      | Fix                                            |
+| -------------------------------------------- | ------------------------------------------ | ---------------------------------------------- |
+| `Error: 429 You exceeded your current quota` | Docker’s shared network IP is rate-limited | Use `npm run start:all` (runs backend locally) |
+| `ECONNREFUSED 127.0.0.1:5432`                | PostgreSQL not ready                       | Wait or rerun `npm run wait:postgres`          |
+| `Cannot GET /api`                            | Base route placeholder                     | Safe to ignore                                 |
 
 ---
 
-## License
+## 🪪 License
 
 MIT © [Sumaiya Shah](https://github.com/sumaiyashah27)
